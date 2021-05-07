@@ -1,0 +1,11 @@
+h1,h2 {
+  margin: 100;
+  padding: 100;
+  font-size: very large;
+}
+
+body {
+  font-size: medium;
+  font: bolder;
+}
+
