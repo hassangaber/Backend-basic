@@ -1,0 +1,54 @@
+diff --git a/node_modules/web3-core-helpers/LICENSE b/node_modules/web3-core-helpers/LICENSE
+old mode 100644
+new mode 100755
+diff --git a/node_modules/web3-core-helpers/README.md b/node_modules/web3-core-helpers/README.md
+old mode 100644
+new mode 100755
+diff --git a/node_modules/web3-core-helpers/lib/errors.js b/node_modules/web3-core-helpers/lib/errors.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/web3-core-helpers/lib/formatters.js b/node_modules/web3-core-helpers/lib/formatters.js
+old mode 100644
+new mode 100755
+index 5e660b1..1299b7f
+--- a/node_modules/web3-core-helpers/lib/formatters.js
++++ b/node_modules/web3-core-helpers/lib/formatters.js
+@@ -293,7 +293,7 @@ var inputLogFormatter = function (options) {
+         options = {};
+     // If options !== undefined, don't blow out existing data
+     if (options.fromBlock === undefined)
+-        options = { ...options, fromBlock: 'latest' };
++        options = Object.assign(options, {fromBlock: latest})
+     if (options.fromBlock || options.fromBlock === 0)
+         options.fromBlock = inputBlockNumberFormatter(options.fromBlock);
+     if (options.toBlock || options.toBlock === 0)
+diff --git a/node_modules/web3-core-helpers/lib/index.js b/node_modules/web3-core-helpers/lib/index.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/web3-core-helpers/src/errors.js b/node_modules/web3-core-helpers/src/errors.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/web3-core-helpers/src/formatters.js b/node_modules/web3-core-helpers/src/formatters.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/web3-core-helpers/src/index.js b/node_modules/web3-core-helpers/src/index.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/web3-core-helpers/tsconfig.json b/node_modules/web3-core-helpers/tsconfig.json
+old mode 100644
+new mode 100755
+diff --git a/node_modules/web3-core-helpers/types/index.d.ts b/node_modules/web3-core-helpers/types/index.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/web3-core-helpers/types/tests/errors-test.ts b/node_modules/web3-core-helpers/types/tests/errors-test.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/web3-core-helpers/types/tests/formatters-test.ts b/node_modules/web3-core-helpers/types/tests/formatters-test.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/web3-core-helpers/types/tsconfig.json b/node_modules/web3-core-helpers/types/tsconfig.json
+old mode 100644
+new mode 100755
+diff --git a/node_modules/web3-core-helpers/types/tslint.json b/node_modules/web3-core-helpers/types/tslint.json
+old mode 100644
+new mode 100755
