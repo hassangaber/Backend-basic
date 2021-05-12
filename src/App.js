@@ -6,6 +6,9 @@ import './App.css';
 import web3 from './web3';
 import ipfs from './ipfs';
 import storehash from './storehash';
+import cryptojs from 'crypto-js';
+
+
 
 class App extends Component 
 { 
@@ -65,7 +68,7 @@ class App extends Component
       event.preventDefault();
 
       //bring in user's metamask account address
-            const accounts = await web3.eth.getAccounts();
+      const accounts = await web3.eth.getAccounts();
      
       console.log('Sending from Metamask account: ' + accounts[0]);
 
@@ -81,11 +84,22 @@ class App extends Component
         //setState by setting ipfsHash to ipfsHash[0].hash 
         this.setState({ ipfsHash:ipfsHash[0].hash });
 
-        // call Ethereum contract method "sendHash" and .send IPFS hash to etheruem contract 
+        //Encrypt the IPFS hash to be stored in the contract (using AES asymmetric encryption)        
+        var string = this.state.ipfsHash.toString();
+        let encrypted = cryptojs.AES.encrypt(string, "secrete_key").toString()
+        var encoded = cryptojs.enc.Base64.parse(encrypted).toString(cryptojs.enc.Hex);
+
+        var decoded = cryptojs.enc.Hex.parse(encoded).toString(cryptojs.enc.Base64);
+        var decrypted = cryptojs.AES.decrypt(decoded, "secrete_key").toString(cryptojs.enc.Utf8);
+
+        document.getElementById("demo1").innerHTML=encrypted;
+        document.getElementById("demo2").innerHTML=decrypted;
+
+         // call Ethereum contract method "sendHash" and .send IPFS hash to etheruem contract 
         //return the transaction hash from the ethereum contract
         //see, this https://web3js.readthedocs.io/en/1.0/web3-eth-contract.html#methods-mymethod-send
-        
-        storehash.methods.sendHash(this.state.ipfsHash).send({
+
+        storehash.methods.sendHash(encrypted).send({
           from: accounts[0] 
         }, (error, transactionHash) => {
           console.log(transactionHash);
@@ -141,14 +155,22 @@ class App extends Component
                
                 <tbody>
                   <tr>
-                    <td>IPFS Hash stored in contract</td>
+                    <td>IPFS Hash</td>
                     <td>{this.state.ipfsHash}</td>
+                  </tr>
+                  <tr>
+                    <td>Encrypted IPFS Hash/Stored Hash</td>
+                    <div id="demo1"></div>
+                  </tr>
+                  <tr>
+                    <td>Testing decryption function</td>
+                    <div id="demo2"></div>
                   </tr>
                   <tr>
                     <td>Ethereum Contract Address</td>
                     <td>{this.state.ethAddress}</td>
                   </tr>
-
+                 
                   <tr>
                     <td>Transaction Hash</td>
                     <td>{this.state.transactionHash}</td>
