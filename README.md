@@ -2,8 +2,7 @@
 ## Outline
 The repository implements all the necessary functions of the backend for electronic medical record application on the Ethereum blockchain.
 
-State Diagram:
-![State](https://drive.google.com/file/d/1KGquiaPEDNoG-IMsYO9UrRLNCf6hfihh/view?usp=sharing "State Diagram")
+State Diagram: https://drive.google.com/file/d/1KGquiaPEDNoG-IMsYO9UrRLNCf6hfihh/view?usp=sharing
 
 * User uploads image from frontend
 * Request to Ethereum network is sent
@@ -23,13 +22,33 @@ This contract takes the encrypted IPFS hash as input and stores it on the chain.
 ## Usage
 Install the metamask browser extension:
 
+Run Truffle Gananche CLI:
+```
+docker run --name ganache --publish 7545:8545 trufflesuite/ganache-cli:latest
+```
+
 
 Ensure NPM is updated to the latest version:
 
 ```
 hassan@Hassans-MacBook-Pro ~ % npm -v
 7.12.1
-hassan@Hassans-MacBook-Pro ~ % 
 ```
 
 Then clone the repository:
+```
+git clone https://github.com/hassangaber/Backend-basic.git EMR
+```
+Once you have entered the EMR directory:
+```
+npm install
+```
+Then the contracts must be executed on the Blockchain:
+```
+hassan@Hassans-MacBook-Pro new % truffle compile
+hassan@Hassans-MacBook-Pro new % truffle deploy
+```
+Now, run the application:
+```
+npm run start
+```
