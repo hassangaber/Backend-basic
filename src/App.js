@@ -118,7 +118,6 @@ class App extends Component
           <hr />
 
         <Container>
-          <h3>Network Status:</h3>
           <h4>*IPFS network: infura.io</h4>
           <h4>*Ethereum RPC Server: HTTP://127.0.0.1:7545</h4>
           <h4>*Public Key (Account Hash): {this.state.ethAddress}</h4>
