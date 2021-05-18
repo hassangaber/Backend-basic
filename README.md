@@ -1,5 +1,9 @@
 # Backend-basic
 
+## References
+
+https://docs.google.com/document/d/1OQNTTYgKfpml5BCIMnXm13xbExUz_GNZ3yQ6j12f6bQ/edit
+
 ## Quick Installation
 
 For quick installation of the repository and getting it up and running please install and run the touch.sh script which will execute all the installations, dependencies, and builds for you.
