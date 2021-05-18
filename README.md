@@ -1,4 +1,14 @@
 # Backend-basic
+
+## Quick Installation
+
+For quick installation of the repository and getting it up and running please install and run the touch.sh script which will execute all the installations, dependencies, and builds for you.
+
+```sh
+chmod +x touch.sh
+./toiuch.sh
+```
+
 ## Outline
 The repository implements all the necessary functions of the backend for electronic medical record application on the Ethereum blockchain.
 
